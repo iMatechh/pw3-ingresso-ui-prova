@@ -7,11 +7,19 @@ import { Filme } from '../model/filme';
   providedIn: 'root',
 })
 export class FilmeService {
-  private apiUrl = 'http://localhost:8080/filmes';
+  private apiUrl = 'http://localhost:8090/filmes';
   private http = inject(HttpClient);
 
   findCartaz(): Observable<Filme[]>{
-    return this.http.get<Filme[]>(this.apiUrl);
+    return this.http.get<Filme[]>(`${this.apiUrl}/em-cartaz`);
   }
   
+  //findById(id: Number): Observable<Filme>{
+  //  return null;
+  //}
+
+  //findSessoesByFilmeId(id: Number): Observable<Sessao[]>{
+  //  return null;
+  //}
+
 }
